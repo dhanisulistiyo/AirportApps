@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="margin-left: 0px; width:110%; overflow: visible;" class="no-scroll">
+  <div class="selection" style="height: 100%;">
+    <ion-grid>
+      <ion-card (click)="getSchedul()" >
+        <img src="assets/img/login.jpg" class="cover" />
+        <ion-card-content class="content-custom" style="top: 0px;">
+          <ion-card-title class="card-custom">
+            <h2 class="h2-title-header">Terminal 1</h2>
+           <h3 class="h3-subtitle-header">Soekarno-Hatta Airport</h3>
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <img src="assets/img/login.jpg" class="cover" />
+        <ion-card-content class="content-custom" style="top: 0px;">
+          <ion-card-title class="card-custom">
+            <h2 class="h2-title-header">Terminal 2</h2>
+            <h3 class="h3-subtitle-header">Soekarno-Hatta Airport</h3>
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card >
+        <img src="assets/img/login.jpg" class="cover" />
+        <ion-card-content class="content-custom" style="top: 0px;">
+          <ion-card-title class="card-custom">
+            <h2 class="h2-title-header">Terminal 3</h2>
+            <h3 class="h3-subtitle-header">Soekarno-Hatta Airport</h3>
+          </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </ion-grid>
+  </div>
+</ion-content>

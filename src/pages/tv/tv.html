@@ -1,0 +1,34 @@
+<!--
+  Generated template for the TvPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>TV Online</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card *ngFor="let item of tv" >
+  <video fullscreen="fullscreen" autoplay="false"  controls>
+  <source src="{{item.content}}" type="video/mp4">
+</video>
+  <ion-card-content>
+    <ion-card-title>
+     {{item.TITTLE}}
+      </ion-card-title>
+    <p>
+      The most popular industrial group ever, and largely
+      responsible for bringing the music to a mass audience.
+    </p>
+  </ion-card-content>
+</ion-card>
+</ion-content>

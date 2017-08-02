@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-title></ion-title>
+</ion-header>
+
+<ion-content class="bg-img">
+  <h2 style="margin-top: 65px;">My Airport</h2>
+  <ion-card>
+    <ion-card-header>
+      Login
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-icon ios="ios-person" md="ios-person-outline" item-left></ion-icon>
+          <ion-input type="text"placeholder="User Name" [(ngModel)]="registerCredentials.username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <!--<ion-label floating>Password</ion-label>-->
+          <ion-icon ios="ios-lock" md="ios-lock-outline" item-left></ion-icon>
+          <ion-input type="password" placeholder="Password"  [(ngModel)]="registerCredentials.password"></ion-input>
+          <!--<button ion-button clear color="dark" type="button" item-right style="height: 28px;padding-right: 0px;padding-left: 0px;"> <ion-icon name="eye" isActive="false"></ion-icon> </button>-->
+        </ion-item>
+        <br>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="bottom-bar">
+    <button ion-button class="btn-login" style="margin-top: 5px;margin-bottom: 0px;" (click)="login()" full>Login</button>
+    <button ion-button class="btn-register" style="margin-top: 10px;margin-bottom: 0px;" (click)="createAccount()" full>Don't have an account? Sign up.</button>
+    <p class="p-center" style="margin-top: 10px;margin-bottom: 10px;">
+      By creating an account, you accept our <b><a class="p-center"href="">User Agreement</a></b>.
+    </p>
+</ion-footer>
