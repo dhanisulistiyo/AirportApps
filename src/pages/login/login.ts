@@ -43,16 +43,26 @@ export class LoginPage {
         });
         loader.present();
         this.auth.login(this.registerCredentials).subscribe(allowed => {           
-            if (allowed) {                                     
+            if (allowed==true) {                                     
                      setTimeout(() => {
                         loader.dismiss();
                         this.nav.setRoot(TabsMenuPage);         
                         this.menu.enable(true);  
                     }, 3000);                      
-            } else {
+            } else if(allowed==false) {
                  setTimeout(() => {
                     loader.dismiss();
                     this.showError("Username and password not yet registered");
+                }, 1000);
+            } else if(allowed=="wrong") {
+                 setTimeout(() => {
+                    loader.dismiss();
+                    this.showError("Username and password not match");
+                }, 1000);
+            }else{
+                setTimeout(() => {
+                    loader.dismiss();
+                    this.showError("Please insert username and password");
                 }, 1000);
             }
         },

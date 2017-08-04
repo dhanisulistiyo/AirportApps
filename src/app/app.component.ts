@@ -23,7 +23,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar, 
     public splashScreen: SplashScreen, public auth: AuthServiceProvider,
-    public ang:AngkasaPuraProvider
+    public ang:AngkasaPuraProvider, public aut: AuthServiceProvider
   ) {
     this.initializeApp();
     this.pages = [
@@ -45,6 +45,7 @@ export class MyApp {
       this.splashScreen.hide();
     });
     this.ang.autoload();
+    this.auth.addAdmin();
   }
 
   openPage(page) {

@@ -16,24 +16,37 @@ export class RegisterPage {
         let reg = this.registerCredentials;
         if (reg.password != reg.con_password) {
             this.showAlertValidasiPassword();
+        }else if(reg.password == "" && reg.username==""){
+                this.showPopup("Error", "Please input username and password.");
+
         } else {
             let loader = this.load.create({
                 content: 'Please wait...'
             });
             loader.present();
-            this.auth.register(this.registerCredentials).then(success => {
+            this.auth.register(this.registerCredentials).subscribe(success => {
                 if (success) {
-                    loader.dismiss();
-                    this.createSuccess = true;
-                    this.showPopup("Success", "Account created.");
-                } else {
-                    loader.dismiss();
-                    this.showPopup("Error", "Problem creating account.");
+                     setTimeout(() => {
+                        loader.dismiss();
+                        this.createSuccess = true;
+                        this.showPopup("Success", "Account created.");        
+                    }, 2000);             
+                    
+                } else {                   
+                    setTimeout(() => {
+                        loader.dismiss();
+                       this.showPopup("Error", "Problem creating account.");       
+                    }, 2000);  
+                    
                 }
             },
                 error => {
-                    loader.dismiss();
-                    this.showPopup("Error", error);
+                    setTimeout(() => {
+                        loader.dismiss();
+                       this.showPopup("Error", error);       
+                    }, 2000);  
+                    
+                    
                 });
         }
     }
