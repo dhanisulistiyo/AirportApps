@@ -1,30 +1,28 @@
-
 import { AngkasaPuraProvider } from './../../providers/angkasa-pura/angkasa-pura';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the TvPage page.
+ * Generated class for the FRestoPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-tv',
-  templateUrl: 'tv.html',
+  selector: 'page-f-resto',
+  templateUrl: 'f-resto.html',
 })
-export class TvPage {
-  tv:Array<any>;
-  listtv: Array<any>;
+export class FRestoPage {
+  resto: Array<any> = []
+  listresto :Array<any> = []
   constructor(public navCtrl: NavController, public navParams: NavParams, public ang: AngkasaPuraProvider) {
   }
 
-  ionViewDidEnter(){
-    console.log(this.ang.tv)
-      this.listtv = this.ang.tv;
-      this.tv = this.ang.tv;
+  ionViewWillEnter(){
+    console.log(this.ang.resto)
+      this.listresto = this.ang.resto;
+      this.resto = this.ang.resto;
   }
-    
 
 }

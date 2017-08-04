@@ -1,3 +1,4 @@
+import { AngkasaPuraProvider } from './../../providers/angkasa-pura/angkasa-pura';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +14,15 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'baggage.html',
 })
 export class BaggagePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  baggage;
+  listbaggage;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ang: AngkasaPuraProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BaggagePage');
+  ionViewWillEnter(){
+   console.log(this.ang.baggage)
+      this.listbaggage = this.ang.baggage;
+      this.baggage = this.ang.baggage;
   }
 
 }

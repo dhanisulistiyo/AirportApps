@@ -1,3 +1,5 @@
+import { FacilityMenuPage } from './../pages/facility-menu/facility-menu';
+import { AngkasaPuraProvider } from './../providers/angkasa-pura/angkasa-pura';
 import { TvPage } from './../pages/tv/tv';
 import { NewsPage } from './../pages/news/news';
 import { BaggagePage } from './../pages/baggage/baggage';
@@ -18,11 +20,14 @@ export class MyApp {
   rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public auth: AuthServiceProvider) {
+  constructor(public platform: Platform, public statusBar: StatusBar, 
+    public splashScreen: SplashScreen, public auth: AuthServiceProvider,
+    public ang:AngkasaPuraProvider
+  ) {
     this.initializeApp();
     this.pages = [
       { title: 'Jadwal Penerbangan', component: HomePage },
-      { title: 'Facilitas', component: HomePage },
+      { title: 'Facilitas', component: FacilityMenuPage },
       { title: 'Berita', component: NewsPage },
       { title: 'TV Online', component: TvPage },
       { title: 'Bagasi', component: BaggagePage }, 
@@ -37,6 +42,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+    this.ang.autoload();
   }
 
   openPage(page) {

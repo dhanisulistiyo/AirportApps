@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -13,12 +13,17 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'news-details.html',
 })
 export class NewsDetailsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  news;
+  showToolbar: boolean = false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef) {
+    this.news= navParams.data['r']
+    console.log(this.news)
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewsDetailsPage');
+  onScroll($event: any) {
+    let scrollTop = $event.scrollTop;
+    this.showToolbar = scrollTop >= 120;
+    this.ref.detectChanges();
   }
 
 }

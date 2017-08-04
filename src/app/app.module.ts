@@ -1,3 +1,11 @@
+import { FShopPage } from './../pages/f-shop/f-shop';
+import { FRestoPage } from './../pages/f-resto/f-resto';
+import { FNumImportantPage } from './../pages/f-num-important/f-num-important';
+import { FHotelPage } from './../pages/f-hotel/f-hotel';
+import { FFacilitasPage } from './../pages/f-facilitas/f-facilitas';
+import { FacilityMenuPage } from './../pages/facility-menu/facility-menu';
+import { TabsMenuPage } from './../pages/tabs-menu/tabs-menu';
+import { NewsDetailsPage } from './../pages/news-details/news-details';
 import { TvPage } from './../pages/tv/tv';
 import { NewsPage } from './../pages/news/news';
 import { MyProfileCpPage } from './../pages/my-profile-cp/my-profile-cp';
@@ -36,7 +44,15 @@ import { AngkasaPuraProvider } from '../providers/angkasa-pura/angkasa-pura';
     NewsPage,
     RegisterPage,
     TvPage,
-    
+    NewsDetailsPage,
+    TabsMenuPage,
+    FacilityMenuPage,
+    FFacilitasPage,
+    FHotelPage,
+    FNumImportantPage,
+    FRestoPage,
+    FShopPage
+
   ],
   imports: [
     BrowserModule,
@@ -56,6 +72,14 @@ import { AngkasaPuraProvider } from '../providers/angkasa-pura/angkasa-pura';
     NewsPage,
     RegisterPage,
     TvPage,
+    NewsDetailsPage,
+    TabsMenuPage,
+    FacilityMenuPage,
+    FFacilitasPage,
+    FHotelPage,
+    FNumImportantPage,
+    FRestoPage,
+    FShopPage
   ],
   providers: [
     StatusBar,

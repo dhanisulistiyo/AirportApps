@@ -1,4 +1,6 @@
 import { HomePage } from './../home/home';
+import { TabsMenuPage } from './../tabs-menu/tabs-menu';
+import { AngkasaPuraProvider } from './../../providers/angkasa-pura/angkasa-pura';
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, MenuController } from 'ionic-angular';
@@ -12,7 +14,9 @@ export class LoginPage {
     public loader= this.load.create();
     registerCredentials = { username: '', password: '' };
 
-    constructor(public nav: NavController, private auth: AuthServiceProvider, private alertCtrl: AlertController,public load : LoadingController, public menu: MenuController) { 
+    constructor(public nav: NavController, private auth: AuthServiceProvider, 
+        private alertCtrl: AlertController,public load : LoadingController, 
+        public menu: MenuController, public ang: AngkasaPuraProvider) { 
     this.menu.enable(false);
     }
 
@@ -27,12 +31,16 @@ export class LoginPage {
         loader.present();
         this.auth.login(this.registerCredentials).subscribe(allowed => {           
             if (allowed) {                     
-                    this.nav.setRoot(HomePage);
+                    this.nav.setRoot(HomePage);         
                     this.menu.enable(true); 
-                    loader.dismiss();        
+                     setTimeout(() => {
+                        loader.dismiss();
+                    }, 5000);     
             } else {
                 this.showError("Username and password not yet registered");
-                loader.dismiss();
+                 setTimeout(() => {
+                    loader.dismiss();
+                }, 3000);
             }
         },
             error => {

@@ -1,3 +1,4 @@
+import { LoadingController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -11,10 +12,65 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AngkasaPuraProvider {
   baseUrl;
-  constructor(public http: Http) {
+  tv;
+  news;
+  schedule;
+  resto;
+  facility;
+  hotel;
+  importanum;
+  shop;
+  baggage;
+  constructor(public http: Http,public load : LoadingController) {
     console.log('Hello AngkasaPuraProvider Provider');
     this.baseUrl = "http://newdau.angkasapura2.co.id/cp-mobile";
   }
+
+autoload(){
+    console.log("loader data");
+    let loader = this.load.create({
+            content: 'Please wait...'
+        });
+        loader.present();
+       this.getNews().subscribe(data=>{
+         console.log("News:"+data);
+          this.news=data;    
+       });
+        this.getTV().subscribe(data=>{
+         console.log("TV:"+data); 
+          this.tv=data;    
+       });
+       this.getSchedule().subscribe(data=>{
+         console.log("Jadwal:"+data); 
+          this.schedule=data;
+       })
+       this.getResto().subscribe(data=>{
+         console.log("Resto:"+data); 
+          this.resto=data;
+       })
+        this.getFacility().subscribe(data=>{
+         console.log("Facility:"+data); 
+          this.facility=data;
+       })
+        this.getHotel().subscribe(data=>{
+         console.log("Hotel:"+data); 
+          this.hotel=data;
+       })
+        this.getImportanNum().subscribe(data=>{
+         console.log("ImportNum:"+data); 
+          this.importanum=data;
+       })
+          this.getShop().subscribe(data=>{
+         console.log("Shop:"+data); 
+          this.shop=data;
+       })
+      this.getBaggage().subscribe(data=>{
+         console.log("Baggage:"+data.object_name); 
+          this.baggage=data.object_name;
+       })
+      loader.dismiss();   
+
+}  
 
 
 //schedule
@@ -34,7 +90,7 @@ getResto() {
     var url = this.baseUrl+'/facility/get_facility';
     var response = this.http.post(url,obj, { headers: headers }).map(res => res.json());
     return response;
-  }
+}
    //facility 
   getFacility() {
     var obj = "username=uapidummy&password=Ymm4ipa&cabang=CGK&data_type=IA_FACILITY&submit=Submit";
@@ -44,7 +100,7 @@ getResto() {
     return response;
   }
 
-    getHotel() {
+  getHotel() {
     var obj = "username=uapidummy&password=Ymm4ipa&cabang=CGK&data_type=IA_HOTEL&submit=Submit";
     var headers = new Headers({  'Content-Type': 'application/x-www-form-urlencoded'});
     var url = this.baseUrl+'/facility/get_facility';
@@ -52,7 +108,7 @@ getResto() {
     return response;
   }
 
-    getImportanNum() {
+  getImportanNum() {
     var obj = "username=uapidummy&password=Ymm4ipa&cabang=CGK&data_type=IA_IMP_NUMBER&submit=Submit";
     var headers = new Headers({  'Content-Type': 'application/x-www-form-urlencoded' });
     var url = this.baseUrl+'/facility/get_facility';
@@ -73,7 +129,7 @@ getResto() {
     var obj = "username=uapidummy&password=Ymm4ipa&submit=Submit";
     var headers = new Headers({  'Content-Type': 'application/x-www-form-urlencoded' });
     var url = this.baseUrl+'/news/get_news';
-    var response = this.http.post(url, { headers: headers }).map(res => res.json());
+    var response = this.http.post(url,obj, { headers: headers }).map(res => res.json());
     return response;
   }
 
@@ -82,7 +138,7 @@ getResto() {
     var obj = "username=uapidummy&password=Ymm4ipa&cabang=CGK&api=Baggage&submit=Submit";
     var headers = new Headers({  'Content-Type': 'application/x-www-form-urlencoded' });
     var url = this.baseUrl+'/baggage/get_baggage';
-    var response = this.http.post(url, { headers: headers }).map(res => res.json());
+    var response = this.http.post(url,obj, { headers: headers }).map(res => res.json());
     return response;
   }
 

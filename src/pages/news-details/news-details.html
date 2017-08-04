@@ -1,18 +1,114 @@
-<!--
-  Generated template for the NewsDetailsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>news-details</ion-title>
+<ion-header no-border [class.opaque]="!showToolbar">
+  <!--Navbar-->
+  <ion-navbar color="primary">
+    <!--Toggle title-->
+    <ion-title [hidden]="!showToolbar">
+      Berita
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<div class="scroll-content" style="padding-top:0px">
+  <ion-content fullscreen="true" style="padding-top: 0px;" (ionScroll)="onScroll($event)">
+    <div class="slide-pager" style="margin-left: -18px; width:110%; overflow: visible; margin-top: -10px;">
+      <ion-slides pager="true" loop="true" speed="1000">
+        <ion-slide>
+          <ion-card>
+            <img src="http://d37j6posq2fmgz.cloudfront.net/resources/1732,5,1,6,3,0/-4601-/20160816213022/lagoon-pool.jpeg" style="height:250px; width:100%;"
+            />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://static.asiawebdirect.com/m/bangkok/hotels/bali-indonesia-com/swiss-belhotel-bay-view-villas/hotelBanner/home.jpg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://dbijapkm3o6fj.cloudfront.net/resources/1062,1004,1,6,4,0,600,450/-4601-/20160818233019/swiss-belhotel-petitenget.jpeg"
+              style="height:250px; width:100%;" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="http://dbijapkm3o6fj.cloudfront.net/resources/3970,1004,1,6,4,0,600,450/-4601-/20150812150125/air.jpeg" style="height:250px; width:100%;"
+            />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="info">
+      <h2>{{news.TITLE_IND}}</h2>
+      <p>
+        <ion-icon ios="ios-star" md="md-star" class="custom-star"></ion-icon>
+        Writer: {{news.CREATED_BY}}
+      </p>
+      <p>
+        <ion-icon ios="ios-pin" md="md-pin" class="custom-pin"></ion-icon>
+        Date Published: {{news.DATE_PUBLISH}}
+      </p>
+        <span class="large" [innerHTML]="news.CONTENT_IND"></span>
+    </div>
 
-<ion-content padding>
 
-</ion-content>
+    <!-- <div class="content">
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length == 0">No Result Room Type in this Date</h5>
+      <h5 class="custom-h5" *ngIf="listroomtypes?.length > 0">Pick your room type</h5>
+      <div class="promo" *ngFor="let itemroom of listroomtypes">
+        <ion-card (click)="setSelectedRoomAllo(itemroom)" *ngIf="itemroom.IsPromo == true" style="height:180px">
+          <ion-row>
+            <ion-col style="padding: 0;">
+              <div class="box">
+                <div class="ribbon ribbon-top-left" *ngIf="itemroom.IsPromo == true"><span *ngIf="itemroom.IsPromo == true">PROMO</span></div>
+                <img src="{{itemroom.ImageUrl}}" class="cover-promo" *ngIf="itemroom.ImageUrl != null ;else other_content" />
+                <ng-template #other_content>
+                  <img src="assets/img/room-bali-hotel.jpg" class="cover-promo" />
+                </ng-template>
+
+                <div class="div-promo" *ngIf="itemroom.IsPromo == true" style="height:180px">
+                  <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Until: {{itemroom.CutOffDate | date:'MMM dd'}} </h3>
+                  <h3 class="subtitle-promo" *ngIf="itemroom.IsPromo == true">Min. Night(s): {{itemroom.MinDays}}</h3>
+                </div>
+              </div>
+            </ion-col>
+
+            <ion-col width-60>
+              <div>
+                <h2>{{itemroom.Name}}</h2>
+                <p style="margin-top: 4vw;">
+                  <ion-icon ios="ios-medal" md="md-medal" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Name}}</p>
+                <p>
+                  <ion-icon ios="ios-people" md="md-people" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+        <ion-card (click)="setSelectedRoomAllo(itemroom)" *ngIf="itemroom.IsPromo == false" style="height:150px">
+          <ion-row>
+            <ion-col style="padding: 0;">
+              <div class="box">
+                <img src="{{itemroom.ImageUrl}}" class="cover" *ngIf="itemroom.ImageUrl != null ;else other_content" />
+                <ng-template #other_content>
+                  <img src="assets/img/room-bali-hotel.jpg" class="cover" />
+                </ng-template>
+              </div>
+            </ion-col>
+
+            <ion-col width-60>
+              <div>
+                <h2>{{itemroom.Name}}</h2>
+                <p style="margin-top: 4vw;">
+                  <ion-icon ios="ios-medal" md="md-medal" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Name}}</p>
+                <p>
+                  <ion-icon ios="ios-people" md="md-people" class="custom-pin"></ion-icon>{{itemroom.AccommodationType.Capacity}} Guest</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div> -->
+
+
+  </ion-content>
+</div>
