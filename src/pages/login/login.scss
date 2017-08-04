@@ -51,7 +51,9 @@ page-login {
     } 
     // Register Background CSS
     .signup-background {
-        background-image: url('../assets/img/signup.jpg'); //background-image: url('../../img/inner_bg.png');
+        background-image: url('../assets/img/signup <p class="p-center" style="margin-top: 10px;margin-bottom: 10px;">
+      By creating an account, you accept our <b><a class="p-center"href="">User Agreement</a></b>.
+    </p>btn.jpg'); //background-image: url('../../img/inner_bg.png');
         // background: url('../../img/getstart.png');
         background-repeat: no-repeat;
         background-size: cover;
@@ -140,6 +142,16 @@ page-login {
         }
     } 
     // Button CSS
+     .btn-guest {
+        background-color: #651FFF;
+        text-transform: none;
+        font-size: 4vw;
+        font-family: 'Open Sans', cursive;
+    }
+    .btn-guest:hover {
+        background-color: #651FFF !important;
+    }
+
     .btn-register {
         background-color: #FF9800;
         text-transform: none;

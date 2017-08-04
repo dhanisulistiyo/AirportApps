@@ -20,6 +20,19 @@ export class LoginPage {
     this.menu.enable(false);
     }
 
+    public loginGuest() {
+         let loader = this.load.create({
+            content: 'Please wait...'
+        });
+        loader.present();
+        
+        setTimeout(() => {
+                        loader.dismiss();
+                        this.menu.enable(true); 
+                        this.nav.push(HomePage);
+                    }, 3000); 
+    }
+
     public createAccount() {
         this.nav.push(RegisterPage);
     }
@@ -30,17 +43,17 @@ export class LoginPage {
         });
         loader.present();
         this.auth.login(this.registerCredentials).subscribe(allowed => {           
-            if (allowed) {                     
-                    this.nav.setRoot(TabsMenuPage);         
-                    this.menu.enable(true); 
+            if (allowed) {                                     
                      setTimeout(() => {
                         loader.dismiss();
-                    }, 5000);     
+                        this.nav.setRoot(TabsMenuPage);         
+                        this.menu.enable(true);  
+                    }, 3000);                      
             } else {
-                this.showError("Username and password not yet registered");
                  setTimeout(() => {
                     loader.dismiss();
-                }, 3000);
+                    this.showError("Username and password not yet registered");
+                }, 1000);
             }
         },
             error => {
