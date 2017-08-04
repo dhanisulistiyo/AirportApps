@@ -32,42 +32,44 @@ autoload(){
             content: 'Please wait...'
         });
         loader.present();
+        //ok
        this.getNews().subscribe(data=>{
          console.log("News:"+data);
           this.news=data;    
        });
+        //ok
         this.getTV().subscribe(data=>{
          console.log("TV:"+data); 
           this.tv=data;    
-       });
+       });//ok
        this.getSchedule().subscribe(data=>{
          console.log("Jadwal:"+data); 
           this.schedule=data;
-       })
+       })//ok
        this.getResto().subscribe(data=>{
          console.log("Resto:"+data); 
           this.resto=data;
-       })
+       })//ok
         this.getFacility().subscribe(data=>{
          console.log("Facility:"+data); 
           this.facility=data;
-       })
+       })//ok
         this.getHotel().subscribe(data=>{
          console.log("Hotel:"+data); 
           this.hotel=data;
-       })
+       })//ok
         this.getImportanNum().subscribe(data=>{
          console.log("ImportNum:"+data); 
           this.importanum=data;
-       })
-          this.getShop().subscribe(data=>{
+       })//ok
+       this.getShop().subscribe(data=>{
          console.log("Shop:"+data); 
           this.shop=data;
        })
-      this.getBaggage().subscribe(data=>{
-         console.log("Baggage:"+data.object_name); 
-          this.baggage=data.object_name;
-       })
+      // this.getBaggage().subscribe(data=>{
+      //    console.log("Baggage:"+data.object_name); 
+      //     this.baggage=data.object_name;
+      //  })
       loader.dismiss();   
 
 }  

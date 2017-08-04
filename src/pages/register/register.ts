@@ -16,10 +16,14 @@ export class RegisterPage {
         let reg = this.registerCredentials;
         if (reg.password != reg.con_password) {
             this.showAlertValidasiPassword();
-        }else if(reg.password == "" && reg.username==""){
-                this.showPopup("Error", "Please input username and password.");
+        }else if(reg.password == ""){
+                this.showPopup("Error", "Please input password.");
 
-        } else {
+        }else if(reg.username==""){
+                this.showPopup("Error", "Please input username.");
+
+        }
+         else {
             let loader = this.load.create({
                 content: 'Please wait...'
             });

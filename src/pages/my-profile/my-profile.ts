@@ -1,3 +1,4 @@
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -13,12 +14,12 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'my-profile.html',
 })
 export class MyProfilePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user
+  constructor(public navCtrl: NavController, public navParams: NavParams, public aut: AuthServiceProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MyProfilePage');
+  ionViewDidEnter(){
+      this.user = this.aut.currentUser;
   }
 
 }
