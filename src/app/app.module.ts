@@ -1,3 +1,4 @@
+import { MyFlightPage } from './../pages/my-flight/my-flight';
 import { FShopPage } from './../pages/f-shop/f-shop';
 import { FRestoPage } from './../pages/f-resto/f-resto';
 import { FNumImportantPage } from './../pages/f-num-important/f-num-important';
@@ -51,7 +52,8 @@ import { AngkasaPuraProvider } from '../providers/angkasa-pura/angkasa-pura';
     FHotelPage,
     FNumImportantPage,
     FRestoPage,
-    FShopPage
+    FShopPage,
+    MyFlightPage
 
   ],
   imports: [
@@ -79,7 +81,8 @@ import { AngkasaPuraProvider } from '../providers/angkasa-pura/angkasa-pura';
     FHotelPage,
     FNumImportantPage,
     FRestoPage,
-    FShopPage
+    FShopPage,
+    MyFlightPage
   ],
   providers: [
     StatusBar,

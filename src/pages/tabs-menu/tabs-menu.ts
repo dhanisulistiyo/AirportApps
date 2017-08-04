@@ -1,3 +1,4 @@
+import { FacilityMenuPage } from './../facility-menu/facility-menu';
 import { TvPage } from './../tv/tv';
 import { NewsPage } from './../news/news';
 import { BaggagePage } from './../baggage/baggage';
@@ -20,7 +21,7 @@ import { NavController, NavParams } from 'ionic-angular';
 export class TabsMenuPage {
 
     tab1Root: any = HomePage
-    tab2Root: any = "Belum Ada";
+    tab2Root: any = FacilityMenuPage;
     tab3Root: any = NewsPage
     tab4Root: any = TvPage
     tab5Root: any = BaggagePage

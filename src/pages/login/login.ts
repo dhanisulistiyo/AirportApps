@@ -31,7 +31,7 @@ export class LoginPage {
         loader.present();
         this.auth.login(this.registerCredentials).subscribe(allowed => {           
             if (allowed) {                     
-                    this.nav.setRoot(HomePage);         
+                    this.nav.setRoot(TabsMenuPage);         
                     this.menu.enable(true); 
                      setTimeout(() => {
                         loader.dismiss();

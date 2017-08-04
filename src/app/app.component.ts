@@ -1,3 +1,4 @@
+import { MyFlightPage } from './../pages/my-flight/my-flight';
 import { FacilityMenuPage } from './../pages/facility-menu/facility-menu';
 import { AngkasaPuraProvider } from './../providers/angkasa-pura/angkasa-pura';
 import { TvPage } from './../pages/tv/tv';
@@ -26,6 +27,7 @@ export class MyApp {
   ) {
     this.initializeApp();
     this.pages = [
+      { title: 'My Flight', component: MyFlightPage },
       { title: 'Jadwal Penerbangan', component: HomePage },
       { title: 'Facilitas', component: FacilityMenuPage },
       { title: 'Berita', component: NewsPage },
